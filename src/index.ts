@@ -5,7 +5,7 @@ import { config } from "dotenv";
 config();
 
 const token = process.env.DISCORD_BOY_TOKEN!;
-const channelId = "755443315670777979";
+const channelId = process.env.CHANNEL_ID!;
 const sendText = Object.freeze({
   tokyoAndZangai:
     "ワールドボス通知:\nアイアンキング(東京)・王将(蔵骸の井戸)が5分後に始まります",
