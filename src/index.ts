@@ -1,7 +1,10 @@
 import { Job, scheduleJob } from "node-schedule";
 import fetch, { Headers } from "node-fetch";
+import { config } from "dotenv";
 
-const token = "NzU1NDQzOTg4ODIzMDE1NTE2.X2DYCg.3ieVtRFIeST6aaRwshha94RMY5k";
+config();
+
+const token = process.env.DISCORD_BOY_TOKEN!;
 const channelId = "755443315670777979";
 const sendText = Object.freeze({
   tokyoAndZangai:
@@ -29,10 +32,6 @@ class NotifyScheduler {
       "Content-Type": "application/json",
       Authorization: `Bot ${initializer.token}`,
     });
-  }
-
-  private init() {
-    console.info("スケジューラーを起動します");
   }
 
   DiscordNotification(name: string, rule: string, content: string): Job {
